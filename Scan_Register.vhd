@@ -1,0 +1,29 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity  Scan_Register is
+	port (  PS2_Data : in std_logic;
+			PS2_Clk : in std_logic;
+			Shift_Ena : in std_logic;
+			resets : in std_logic;
+			Reg_A : out std_logic_vector(10 downto 0);
+			Reg_B : out std_logic_vector(10 downto 0));
+end Scan_Register;
+architecture structural of Scan_Register is
+
+component reg_11 is
+	port (  Clk : in std_logic;
+			reset: in std_logic;
+			Shift_In : in std_logic;
+			Shift_En : in std_logic;
+			Shift_Out : out std_logic;
+			Data_Out : out std_logic_vector(10 downto 0));
+end component reg_11;
+signal ShiftOut: std_logic;
+begin
+	RegA: reg_11 port map(Clk => PS2_Clk, reset => resets, Shift_In => PS2_Data, Shift_Out => ShiftOut, Shift_En => Shift_Ena, Data_Out => Reg_A);
+	RegB: reg_11 port map(Clk => PS2_Clk, reset => resets, Shift_In => ShiftOut, Shift_En => Shift_Ena, Data_Out => Reg_B);
+end structural;
+	

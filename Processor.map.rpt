@@ -1,0 +1,1179 @@
+Analysis & Synthesis report for Processor
+Wed Dec 05 16:14:25 2012
+Quartus II 64-Bit Version 9.1 Build 222 10/21/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult1
+ 16. Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult2
+ 17. Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult3
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "Scan_Register:inst4|reg_11:RegB"
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Dec 05 16:14:25 2012    ;
+; Quartus II 64-Bit Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name                      ; Processor                                ;
+; Top-level Entity Name              ; Processor                                ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 1,783                                    ;
+;     Total combinational functions  ; 1,758                                    ;
+;     Dedicated logic registers      ; 139                                      ;
+; Total registers                    ; 139                                      ;
+; Total pins                         ; 107                                      ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; Processor          ; Processor          ;
+; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                 ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------+
+; Scan_Register.vhd                ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/Scan_Register.vhd       ;
+; ball.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/ball.vhd                ;
+; BouncingBall.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/BouncingBall.vhd        ;
+; Color_Mapper.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/Color_Mapper.vhd        ;
+; VGA_controller.vhd               ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/VGA_controller.vhd      ;
+; dff.vhd                          ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/dff.vhd                 ;
+; reg_11.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/reg_11.vhd              ;
+; mapper.vhd                       ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/mapper.vhd              ;
+; Hexdriver.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/Hexdriver.vhd           ;
+; Processor.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Jeff/Desktop/385 Final Proj/Processor.bdf           ;
+; clockDivider.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/clockDivider.vhd        ;
+; linkDataFile.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Jeff/Desktop/385 Final Proj/linkDataFile.vhd        ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                       ; c:/altera/91/quartus/libraries/megafunctions/lpm_mult.tdf    ;
+; multcore.tdf                     ; yes             ; Megafunction                       ; c:/altera/91/quartus/libraries/megafunctions/multcore.tdf    ;
+; mpar_add.tdf                     ; yes             ; Megafunction                       ; c:/altera/91/quartus/libraries/megafunctions/mpar_add.tdf    ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                       ; c:/altera/91/quartus/libraries/megafunctions/lpm_add_sub.tdf ;
+; db/add_sub_v4h.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Jeff/Desktop/385 Final Proj/db/add_sub_v4h.tdf      ;
+; db/add_sub_tfh.tdf               ; yes             ; Auto-Generated Megafunction        ; C:/Users/Jeff/Desktop/385 Final Proj/db/add_sub_tfh.tdf      ;
+; altshift.tdf                     ; yes             ; Megafunction                       ; c:/altera/91/quartus/libraries/megafunctions/altshift.tdf    ;
++----------------------------------+-----------------+------------------------------------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                  ;
++---------------------------------------------+------------------------------------------------+
+; Resource                                    ; Usage                                          ;
++---------------------------------------------+------------------------------------------------+
+; Estimated Total logic elements              ; 1,783                                          ;
+;                                             ;                                                ;
+; Total combinational functions               ; 1758                                           ;
+; Logic element usage by number of LUT inputs ;                                                ;
+;     -- 4 input functions                    ; 928                                            ;
+;     -- 3 input functions                    ; 517                                            ;
+;     -- <=2 input functions                  ; 313                                            ;
+;                                             ;                                                ;
+; Logic elements by mode                      ;                                                ;
+;     -- normal mode                          ; 1332                                           ;
+;     -- arithmetic mode                      ; 426                                            ;
+;                                             ;                                                ;
+; Total registers                             ; 139                                            ;
+;     -- Dedicated logic registers            ; 139                                            ;
+;     -- I/O registers                        ; 0                                              ;
+;                                             ;                                                ;
+; I/O pins                                    ; 107                                            ;
+; Maximum fan-out node                        ; BouncingBall:inst17|ball:ball_instance|maps[0] ;
+; Maximum fan-out                             ; 165                                            ;
+; Total fan-out                               ; 6402                                           ;
+; Average fan-out                             ; 3.19                                           ;
++---------------------------------------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                            ; Library Name ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+; |Processor                              ; 1758 (2)          ; 139 (0)      ; 0           ; 0            ; 0       ; 0         ; 107  ; 0            ; |Processor                                                     ; work         ;
+;    |BouncingBall:inst17|                ; 1707 (0)          ; 107 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|BouncingBall:inst17                                 ;              ;
+;       |Color_Mapper:Color_instance|     ; 772 (772)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance     ;              ;
+;       |ball:ball_instance|              ; 850 (850)         ; 60 (60)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|BouncingBall:inst17|ball:ball_instance              ;              ;
+;       |clkDiv:Clock_divider_instance|   ; 43 (43)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|BouncingBall:inst17|clkDiv:Clock_divider_instance   ;              ;
+;       |vga_controller:vgaSync_instance| ; 42 (42)           ; 23 (23)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|BouncingBall:inst17|vga_controller:vgaSync_instance ;              ;
+;    |DFlipflop:inst16|                   ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|DFlipflop:inst16                                    ;              ;
+;    |DFlipflop:inst|                     ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|DFlipflop:inst                                      ;              ;
+;    |HexDriver:inst12|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:inst12                                    ;              ;
+;    |HexDriver:inst13|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:inst13                                    ;              ;
+;    |HexDriver:inst14|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:inst14                                    ;              ;
+;    |HexDriver:inst15|                   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|HexDriver:inst15                                    ;              ;
+;    |Scan_Register:inst4|                ; 0 (0)             ; 21 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|Scan_Register:inst4                                 ;              ;
+;       |reg_11:RegA|                     ; 0 (0)             ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|Scan_Register:inst4|reg_11:RegA                     ;              ;
+;       |reg_11:RegB|                     ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|Scan_Register:inst4|reg_11:RegB                     ;              ;
+;    |mapper:inst3|                       ; 21 (21)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processor|mapper:inst3                                        ;              ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                                                              ;
++----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------------+
+; Latch Name                                                                 ; Latch Enable Signal                                                        ; Free of Timing Hazards ;
++----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------------+
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[8]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[9]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[10]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[11]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[12]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[13]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[14]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[15]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[0]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[1]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[2]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[3]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[4]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[5]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[6]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[7]                ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[5]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[4]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[15]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[14]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[13]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[12]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[11]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[10]                     ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[9]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[8]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[7]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[6]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[3]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[2]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[1]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RG[0]                      ; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[17]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|RAM_Addr[16]               ; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[9]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[8]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[7]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[6]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[5]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[4]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[3]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[2]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[1]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[0]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[9]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[8]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[7]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[6]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[5]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[4]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[3]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[2]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[1]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[0]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[9]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[8]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[7]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[6]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[5]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[4]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[3]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[2]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[1]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY1[0]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[9]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[8]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[7]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[6]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[5]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[4]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[3]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[2]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[1]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordY2[0]   ; mapper:inst3|At                                                            ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|dataReady                  ; VCC                                                                        ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:frameNo      ; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:frameNo      ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[0] ; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[3] ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[1] ; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[3] ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[2] ; BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[3] ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|state.C_2119               ; VCC                                                                        ; yes                    ;
+; BouncingBall:inst17|Color_Mapper:Color_instance|state.A_2135               ; VCC                                                                        ; yes                    ;
+; Number of user-specified and inferred latches = 81                         ;                                                                            ;                        ;
++----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                          ;
++-----------------------------------------------------------------------+---------------------------------------------------------------------+
+; Register name                                                         ; Reason for Removal                                                  ;
++-----------------------------------------------------------------------+---------------------------------------------------------------------+
+; BouncingBall:inst17|ball:ball_instance|Enemy3[0]                      ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|\Move_Ball:stop                ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_motion[0]               ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_Max2[9]                 ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_Max2[7..8]              ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_Max2[0..6]              ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_Max2[9]                 ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_Max2[6..8]              ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_Max2[5]                 ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_Max2[0..4]              ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_Min2[0..9]              ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_Min2[0..9]              ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[3]                      ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[0..2]                   ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[3]                      ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[0..2]                   ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[3]                      ; Stuck at VCC due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[1..2]                   ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_motion[2..8]            ; Merged with BouncingBall:inst17|ball:ball_instance|Ball_Y_motion[9] ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_motion[2..8]            ; Merged with BouncingBall:inst17|ball:ball_instance|Ball_X_motion[9] ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_motion[0]               ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[6..10,13,15..20,23]     ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[6..10,13,15..20,23..24] ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[6..10,12,15..20,23]     ; Stuck at GND due to stuck port data_in                              ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[11,14]                  ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[25]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[11,22]                  ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[25]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[25]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[25]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[21,24]                  ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[24]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[12]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[21]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[22]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[21]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[13..14]                 ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy2[25]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[12]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy2[21]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[11]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy2[14]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy1[4]                      ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[4]                      ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[4]                      ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Map4En1_Health[0]              ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Map4En2_Health[0]              ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Map4En3_Health[0]              ; Lost fanout                                                         ;
+; mapper:inst3|M                                                        ; Lost fanout                                                         ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[14]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[22]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[21]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[24]       ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[25]                     ; Merged with BouncingBall:inst17|ball:ball_instance|Enemy1[25]       ;
+; Total Number of Removed Registers = 132                               ;                                                                     ;
++-----------------------------------------------------------------------+---------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++--------------------------------------------------+--------------------+----------------------------------------------------------+
+; Register name                                    ; Reason for Removal ; Registers Removed due to This Register                   ;
++--------------------------------------------------+--------------------+----------------------------------------------------------+
+; BouncingBall:inst17|ball:ball_instance|Enemy1[4] ; Lost Fanouts       ; BouncingBall:inst17|ball:ball_instance|Map4En1_Health[0] ;
+; BouncingBall:inst17|ball:ball_instance|Enemy2[4] ; Lost Fanouts       ; BouncingBall:inst17|ball:ball_instance|Map4En2_Health[0] ;
+; BouncingBall:inst17|ball:ball_instance|Enemy3[4] ; Lost Fanouts       ; BouncingBall:inst17|ball:ball_instance|Map4En3_Health[0] ;
++--------------------------------------------------+--------------------+----------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 139   ;
+; Number of registers using Synchronous Clear  ; 3     ;
+; Number of registers using Synchronous Load   ; 19    ;
+; Number of registers using Asynchronous Clear ; 118   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 47    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------+
+; Inverted Register Statistics                                       ;
++----------------------------------------------------------+---------+
+; Inverted Register                                        ; Fan out ;
++----------------------------------------------------------+---------+
+; BouncingBall:inst17|ball:ball_instance|Ball_X_pos[8]     ; 20      ;
+; BouncingBall:inst17|ball:ball_instance|Ball_X_pos[6]     ; 85      ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[7]     ; 26      ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[6]     ; 22      ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[5]     ; 35      ;
+; BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[4]     ; 12      ;
+; BouncingBall:inst17|ball:ball_instance|Map3En2_Health[0] ; 3       ;
+; BouncingBall:inst17|ball:ball_instance|Map2En2_Health[0] ; 2       ;
+; BouncingBall:inst17|ball:ball_instance|Map1En2_Health[0] ; 2       ;
+; BouncingBall:inst17|ball:ball_instance|Map3En1_Health[0] ; 3       ;
+; BouncingBall:inst17|ball:ball_instance|Map2En1_Health[0] ; 2       ;
+; BouncingBall:inst17|ball:ball_instance|Map1En1_Health[0] ; 2       ;
+; BouncingBall:inst17|ball:ball_instance|Map3En3_Health[0] ; 3       ;
+; BouncingBall:inst17|ball:ball_instance|Map2En3_Health[0] ; 2       ;
+; BouncingBall:inst17|ball:ball_instance|Map1En3_Health[0] ; 2       ;
+; Total number of inverted registers = 15                  ;         ;
++----------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Enemy3[5]         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[1]     ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 14 LEs               ; 7 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Ball_X_pos[1]     ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 4 LEs                ; 336 LEs                ; Yes        ; |Processor|mapper:inst3|dir[0]                                      ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 10 LEs               ; 2 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Ball_X_motion[1]  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Ball_Y_pos[5]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Ball_X_pos[6]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |Processor|BouncingBall:inst17|ball:ball_instance|Map1En2_Health[0] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|swordY1  ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|Add16    ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 15 LEs               ; 0 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|Add16    ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|swordX1  ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|swordX2  ;
+; 5:1                ; 13 bits   ; 39 LEs        ; 26 LEs               ; 13 LEs                 ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|swordY1  ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 18 LEs               ; 9 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|swordX2  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|blocktype1        ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |Processor|BouncingBall:inst17|Color_Mapper:Color_instance|Add16    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|dir               ;
+; 601:1              ; 2 bits    ; 800 LEs       ; 228 LEs              ; 572 LEs                ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|Mux36             ;
+; 602:1              ; 2 bits    ; 802 LEs       ; 228 LEs              ; 574 LEs                ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|Mux119            ;
+; 602:1              ; 2 bits    ; 802 LEs       ; 228 LEs              ; 574 LEs                ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|Mux78             ;
+; 602:1              ; 2 bits    ; 802 LEs       ; 228 LEs              ; 574 LEs                ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|blocktype2        ;
+; 602:1              ; 2 bits    ; 802 LEs       ; 44 LEs               ; 758 LEs                ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|blocktype2        ;
+; 602:1              ; 4 bits    ; 1604 LEs      ; 456 LEs              ; 1148 LEs               ; No         ; |Processor|BouncingBall:inst17|ball:ball_instance|blocktype2        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0 ;
++------------------------------------------------+------------+---------------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                              ;
++------------------------------------------------+------------+---------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                    ;
+; LPM_WIDTHA                                     ; 7          ; Untyped                                           ;
+; LPM_WIDTHB                                     ; 10         ; Untyped                                           ;
+; LPM_WIDTHP                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHR                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                           ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                           ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                           ;
+; LATENCY                                        ; 0          ; Untyped                                           ;
+; INPUT_A_IS_CONSTANT                            ; YES        ; Untyped                                           ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                           ;
+; USE_EAB                                        ; OFF        ; Untyped                                           ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped                                           ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                           ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                           ;
+; CBXI_PARAMETER                                 ; NOTHING    ; Untyped                                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                           ;
++------------------------------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult1 ;
++------------------------------------------------+------------+---------------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                              ;
++------------------------------------------------+------------+---------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                    ;
+; LPM_WIDTHA                                     ; 7          ; Untyped                                           ;
+; LPM_WIDTHB                                     ; 10         ; Untyped                                           ;
+; LPM_WIDTHP                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHR                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                           ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                           ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                           ;
+; LATENCY                                        ; 0          ; Untyped                                           ;
+; INPUT_A_IS_CONSTANT                            ; YES        ; Untyped                                           ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                           ;
+; USE_EAB                                        ; OFF        ; Untyped                                           ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped                                           ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                           ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                           ;
+; CBXI_PARAMETER                                 ; NOTHING    ; Untyped                                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                           ;
++------------------------------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult2 ;
++------------------------------------------------+------------+---------------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                              ;
++------------------------------------------------+------------+---------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                    ;
+; LPM_WIDTHA                                     ; 7          ; Untyped                                           ;
+; LPM_WIDTHB                                     ; 10         ; Untyped                                           ;
+; LPM_WIDTHP                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHR                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                           ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                           ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                           ;
+; LATENCY                                        ; 0          ; Untyped                                           ;
+; INPUT_A_IS_CONSTANT                            ; YES        ; Untyped                                           ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                           ;
+; USE_EAB                                        ; OFF        ; Untyped                                           ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped                                           ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                           ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                           ;
+; CBXI_PARAMETER                                 ; NOTHING    ; Untyped                                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                           ;
++------------------------------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult3 ;
++------------------------------------------------+------------+---------------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                              ;
++------------------------------------------------+------------+---------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                    ;
+; LPM_WIDTHA                                     ; 7          ; Untyped                                           ;
+; LPM_WIDTHB                                     ; 10         ; Untyped                                           ;
+; LPM_WIDTHP                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHR                                     ; 17         ; Untyped                                           ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                           ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                           ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                           ;
+; LATENCY                                        ; 0          ; Untyped                                           ;
+; INPUT_A_IS_CONSTANT                            ; YES        ; Untyped                                           ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                           ;
+; USE_EAB                                        ; OFF        ; Untyped                                           ;
+; MAXIMIZE_SPEED                                 ; 6          ; Untyped                                           ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                           ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                           ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                               ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                           ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                           ;
+; CBXI_PARAMETER                                 ; NOTHING    ; Untyped                                           ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                           ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                           ;
++------------------------------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                         ;
++---------------------------------------+----------------------------------------------------------------+
+; Name                                  ; Value                                                          ;
++---------------------------------------+----------------------------------------------------------------+
+; Number of entity instances            ; 4                                                              ;
+; Entity Instance                       ; BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 7                                                              ;
+;     -- LPM_WIDTHB                     ; 10                                                             ;
+;     -- LPM_WIDTHP                     ; 17                                                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
+; Entity Instance                       ; BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 7                                                              ;
+;     -- LPM_WIDTHB                     ; 10                                                             ;
+;     -- LPM_WIDTHP                     ; 17                                                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
+; Entity Instance                       ; BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 7                                                              ;
+;     -- LPM_WIDTHB                     ; 10                                                             ;
+;     -- LPM_WIDTHP                     ; 17                                                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
+; Entity Instance                       ; BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 7                                                              ;
+;     -- LPM_WIDTHB                     ; 10                                                             ;
+;     -- LPM_WIDTHP                     ; 17                                                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                         ;
+;     -- INPUT_A_IS_CONSTANT            ; YES                                                            ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                             ;
+;     -- USE_EAB                        ; OFF                                                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                             ;
++---------------------------------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Scan_Register:inst4|reg_11:RegB"                                                         ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; shift_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
+    Info: Processing started: Wed Dec 05 16:14:08 2012
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab9 -c Processor
+Info: Found 2 design units, including 1 entities, in source file mapplanner.vhd
+    Info: Found design unit 1: MapPlanner-Behavioral
+    Info: Found entity 1: MapPlanner
+Info: Found 2 design units, including 1 entities, in source file char.vhd
+    Info: Found design unit 1: Game-Behavioral
+    Info: Found entity 1: Game
+Info: Found 2 design units, including 1 entities, in source file scan_register.vhd
+    Info: Found design unit 1: Scan_Register-structural
+    Info: Found entity 1: Scan_Register
+Info: Found 2 design units, including 1 entities, in source file ball.vhd
+    Info: Found design unit 1: ball-Behavioral
+    Info: Found entity 1: ball
+Info: Found 2 design units, including 1 entities, in source file bouncingball.vhd
+    Info: Found design unit 1: BouncingBall-Behavioral
+    Info: Found entity 1: BouncingBall
+Info: Found 2 design units, including 1 entities, in source file color_mapper.vhd
+    Info: Found design unit 1: Color_Mapper-Behavioral
+    Info: Found entity 1: Color_Mapper
+Info: Found 2 design units, including 1 entities, in source file vga_controller.vhd
+    Info: Found design unit 1: vga_controller-Behavioral
+    Info: Found entity 1: vga_controller
+Info: Found 2 design units, including 1 entities, in source file dff.vhd
+    Info: Found design unit 1: DFlipflop-behavior
+    Info: Found entity 1: DFlipflop
+Info: Found 2 design units, including 1 entities, in source file reg_11.vhd
+    Info: Found design unit 1: reg_11-Behavioral
+    Info: Found entity 1: reg_11
+Info: Found 2 design units, including 1 entities, in source file mapper.vhd
+    Info: Found design unit 1: mapper-Behavioral
+    Info: Found entity 1: mapper
+Info: Found 2 design units, including 1 entities, in source file hexdriver.vhd
+    Info: Found design unit 1: HexDriver-Behavioral
+    Info: Found entity 1: HexDriver
+Info: Found 1 design units, including 1 entities, in source file processor.bdf
+    Info: Found entity 1: Processor
+Info: Found 2 design units, including 1 entities, in source file clockdivider.vhd
+    Info: Found design unit 1: clkDiv-Behavioral
+    Info: Found entity 1: clkDiv
+Info: Found 2 design units, including 1 entities, in source file linkdatafile.vhd
+    Info: Found design unit 1: linkDataFile-Behavioral
+    Info: Found entity 1: linkDataFile
+Info: Elaborating entity "Processor" for the top level hierarchy
+Info: Elaborating entity "BouncingBall" for hierarchy "BouncingBall:inst17"
+Info: Elaborating entity "vga_controller" for hierarchy "BouncingBall:inst17|vga_controller:vgaSync_instance"
+Info: Elaborating entity "ball" for hierarchy "BouncingBall:inst17|ball:ball_instance"
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(46): used implicit default value for signal "Map1En1_Type" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(50): used explicit default value for signal "Map1En2_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(54): used explicit default value for signal "Map1En3_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(58): used explicit default value for signal "Map2En1_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(62): used explicit default value for signal "Map2En2_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(66): used explicit default value for signal "Map2En3_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(70): used explicit default value for signal "Map3En1_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(74): used explicit default value for signal "Map3En2_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(78): used explicit default value for signal "Map3En3_Type" because signal was never assigned a value
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(80): used implicit default value for signal "Map4En1_X" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(80): used implicit default value for signal "Map4En1_Y" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(82): used explicit default value for signal "Map4En1_Type" because signal was never assigned a value
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(84): used implicit default value for signal "Map4En2_X" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(84): used implicit default value for signal "Map4En2_Y" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(86): used explicit default value for signal "Map4En2_Type" because signal was never assigned a value
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(88): used implicit default value for signal "Map4En3_X" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ball.vhd(88): used implicit default value for signal "Map4En3_Y" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(90): used explicit default value for signal "Map4En3_Type" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(103): used explicit default value for signal "map0" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(119): used explicit default value for signal "map1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(135): used explicit default value for signal "map2" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ball.vhd(151): used explicit default value for signal "map3" because signal was never assigned a value
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En1_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En1_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En2_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En2_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En3_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map1En3_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En1_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En1_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En2_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En2_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En3_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map2En3_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En1_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En1_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En2_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En2_Y", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En3_X", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ball.vhd(232): inferring latch(es) for signal or variable "Map3En3_Y", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "Map3En3_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En3_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En2_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map3En1_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En3_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En2_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map2En1_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En3_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En2_X[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_Y[9]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[0]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[1]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[2]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[3]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[4]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[5]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[6]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[7]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[8]" at ball.vhd(232)
+Info (10041): Inferred latch for "Map1En1_X[9]" at ball.vhd(232)
+Info: Elaborating entity "Color_Mapper" for hierarchy "BouncingBall:inst17|Color_Mapper:Color_instance"
+Warning (10036): Verilog HDL or VHDL warning at Color_Mapper.vhd(48): object "Ball_on" assigned a value but never read
+Warning (10540): VHDL Signal Declaration warning at Color_Mapper.vhd(75): used explicit default value for signal "map0" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Color_Mapper.vhd(91): used explicit default value for signal "map1" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Color_Mapper.vhd(107): used explicit default value for signal "map2" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at Color_Mapper.vhd(123): used explicit default value for signal "map3" because signal was never assigned a value
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(321): signal "mapname" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(323): signal "map0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(325): signal "map1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(327): signal "map2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(329): signal "map3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "swordX1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "swordX2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "swordY1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "swordY2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "frameNo", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "baseOne", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(146): inferring latch(es) for signal or variable "blocktype", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(371): signal "drToggle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(373): signal "nprToggle" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(376): signal "temp_Addr" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(381): signal "RAM_Data" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(366): inferring latch(es) for signal or variable "drToggle", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(366): inferring latch(es) for signal or variable "nprToggle", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(366): inferring latch(es) for signal or variable "RAM_Addr", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(366): inferring latch(es) for signal or variable "RG", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(366): inferring latch(es) for signal or variable "next_state", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(393): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(405): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at Color_Mapper.vhd(418): signal "state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at Color_Mapper.vhd(413): inferring latch(es) for signal or variable "state", which holds its previous value in one or more paths through the process
+Warning (10036): Verilog HDL or VHDL warning at Color_Mapper.vhd(440): object "GGB" assigned a value but never read
+Info (10041): Inferred latch for "state.F" at Color_Mapper.vhd(413)
+Info (10041): Inferred latch for "state.C" at Color_Mapper.vhd(413)
+Info (10041): Inferred latch for "state.B" at Color_Mapper.vhd(413)
+Info (10041): Inferred latch for "state.A" at Color_Mapper.vhd(413)
+Info (10041): Inferred latch for "next_state.F" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "next_state.C" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "next_state.B" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "next_state.A" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[0]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[1]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[2]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[3]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[4]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[5]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[6]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[7]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[8]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[9]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[10]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[11]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[12]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[13]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[14]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RG[15]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[0]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[1]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[2]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[3]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[4]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[5]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[6]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[7]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[8]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[9]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[10]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[11]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[12]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[13]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[14]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[15]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[16]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "RAM_Addr[17]" at Color_Mapper.vhd(366)
+Info (10041): Inferred latch for "Ball_on_proc:blocktype[0]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:blocktype[1]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:blocktype[2]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:blocktype[3]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[0]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[1]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[2]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[3]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[4]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[5]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[6]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[7]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[8]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[9]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[10]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[11]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[12]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[13]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[14]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[15]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:baseOne[16]" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:frameNo" at Color_Mapper.vhd(211)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[0]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[1]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[2]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[3]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[4]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[5]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[6]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[7]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[8]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY2[9]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[0]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[1]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[2]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[3]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[4]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[5]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[6]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[7]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[8]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordY1[9]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[0]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[1]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[2]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[3]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[4]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[5]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[6]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[7]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[8]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX2[9]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[0]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[1]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[2]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[3]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[4]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[5]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[6]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[7]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[8]" at Color_Mapper.vhd(166)
+Info (10041): Inferred latch for "Ball_on_proc:swordX1[9]" at Color_Mapper.vhd(166)
+Info: Elaborating entity "clkDiv" for hierarchy "BouncingBall:inst17|clkDiv:Clock_divider_instance"
+Info: Elaborating entity "mapper" for hierarchy "mapper:inst3"
+Warning (10492): VHDL Process Statement warning at mapper.vhd(30): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "Scan_Register" for hierarchy "Scan_Register:inst4"
+Info: Elaborating entity "reg_11" for hierarchy "Scan_Register:inst4|reg_11:RegA"
+Info: Elaborating entity "DFlipflop" for hierarchy "DFlipflop:inst"
+Info: Elaborating entity "linkDataFile" for hierarchy "linkDataFile:inst7"
+Info: Elaborating entity "HexDriver" for hierarchy "HexDriver:inst15"
+Info: Inferred 4 megafunctions from design logic
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "BouncingBall:inst17|Color_Mapper:Color_instance|Mult0"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "BouncingBall:inst17|Color_Mapper:Color_instance|Mult1"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "BouncingBall:inst17|Color_Mapper:Color_instance|Mult2"
+    Info: Inferred multiplier megafunction ("lpm_mult") from the following logic: "BouncingBall:inst17|Color_Mapper:Color_instance|Mult3"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Instantiated megafunction "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "7"
+    Info: Parameter "LPM_WIDTHB" = "10"
+    Info: Parameter "LPM_WIDTHP" = "17"
+    Info: Parameter "LPM_WIDTHR" = "17"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "YES"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "6"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_v4h.tdf
+    Info: Found entity 1: add_sub_v4h
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_tfh.tdf
+    Info: Found entity 1: add_sub_tfh
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult0"
+Info: Elaborated megafunction instantiation "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult1"
+Info: Instantiated megafunction "BouncingBall:inst17|Color_Mapper:Color_instance|lpm_mult:Mult1" with the following parameter:
+    Info: Parameter "LPM_WIDTHA" = "7"
+    Info: Parameter "LPM_WIDTHB" = "10"
+    Info: Parameter "LPM_WIDTHP" = "17"
+    Info: Parameter "LPM_WIDTHR" = "17"
+    Info: Parameter "LPM_WIDTHS" = "1"
+    Info: Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info: Parameter "INPUT_A_IS_CONSTANT" = "YES"
+    Info: Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info: Parameter "MAXIMIZE_SPEED" = "6"
+Info: Duplicate LATCH primitives merged into single LATCH primitive
+    Info: Duplicate LATCH primitive "BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[1]" merged with LATCH primitive "BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[1]"
+    Info: Duplicate LATCH primitive "BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX2[0]" merged with LATCH primitive "BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:swordX1[0]"
+Warning: Latch BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:frameNo has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal mapper:inst3|M~0
+Warning: Latch BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal BouncingBall:inst17|vga_controller:vgaSync_instance|hc[5]
+Warning: Latch BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal BouncingBall:inst17|vga_controller:vgaSync_instance|hc[6]
+Warning: Latch BouncingBall:inst17|Color_Mapper:Color_instance|\Ball_on_proc:blocktype[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal BouncingBall:inst17|vga_controller:vgaSync_instance|hc[5]
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sync" is stuck at GND
+    Warning (13410): Pin "SRAM_WE" is stuck at VCC
+    Warning (13410): Pin "SRAM_OE" is stuck at GND
+    Warning (13410): Pin "SRAM_CE" is stuck at GND
+    Warning (13410): Pin "SRAM_LB_Mask" is stuck at GND
+    Warning (13410): Pin "SRAM_UB_Mask" is stuck at GND
+    Warning (13410): Pin "Blue[4]" is stuck at GND
+    Warning (13410): Pin "Blue[3]" is stuck at GND
+    Warning (13410): Pin "Blue[2]" is stuck at GND
+    Warning (13410): Pin "Blue[1]" is stuck at GND
+    Warning (13410): Pin "Blue[0]" is stuck at GND
+    Warning (13410): Pin "Green[4]" is stuck at GND
+    Warning (13410): Pin "Green[3]" is stuck at GND
+    Warning (13410): Pin "Green[2]" is stuck at GND
+    Warning (13410): Pin "Green[1]" is stuck at GND
+    Warning (13410): Pin "Green[0]" is stuck at GND
+    Warning (13410): Pin "Red[4]" is stuck at GND
+    Warning (13410): Pin "Red[3]" is stuck at GND
+    Warning (13410): Pin "Red[2]" is stuck at GND
+    Warning (13410): Pin "Red[1]" is stuck at GND
+    Warning (13410): Pin "Red[0]" is stuck at GND
+Critical Warning: Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register BouncingBall:inst17|ball:ball_instance|Map1En2_Health[1] will power up to Low
+    Critical Warning (18010): Register BouncingBall:inst17|ball:ball_instance|Map1En2_Health[0] will power up to High
+Info: 7 registers lost all their fanouts during netlist optimizations. The first 7 are displayed below.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Enemy1[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Enemy2[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Enemy3[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Map4En1_Health[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Map4En2_Health[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "BouncingBall:inst17|ball:ball_instance|Map4En3_Health[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "mapper:inst3|M" lost all its fanouts during netlist optimizations.
+Info: Implemented 1902 device resources after synthesis - the final resource count might be different
+    Info: Implemented 20 input pins
+    Info: Implemented 87 output pins
+    Info: Implemented 1795 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
+    Info: Peak virtual memory: 336 megabytes
+    Info: Processing ended: Wed Dec 05 16:14:25 2012
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:17
+
+

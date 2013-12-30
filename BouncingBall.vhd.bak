@@ -1,0 +1,184 @@
+---------------------------------------------------------------------------
+--      BouncingBall.vhd                                                 --
+--      Viral Mehta                                                      --
+--      Spring 2005                                                      --
+--                                                                       --
+--      Modified by Stephen Kempf 03-01-2006                             --
+--                                03-12-2007                             --
+--      Fall 2012 Distribution                                           --
+--                                                                       --
+--      For use with ECE 385 Lab 9                                       --
+--      UIUC ECE Department                                              --
+---------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity BouncingBall is
+    Port ( Clk : in std_logic;
+           Reset : in std_logic;
+           U : in std_logic;
+		   D : in std_logic;
+           L : in std_logic;
+           R : in std_logic;  
+           
+           MEMO_Data: in std_logic_vector(15 downto 0);
+           
+           MEMO_Addr: out std_logic_vector(17 downto 0);
+		   linkInfo: in std_logic_vector(6 downto 0);	
+           
+           Ball_X_po, Ball_Y_po: in std_logic_vector(9 downto 0);      
+                            
+                      
+           Red   : out std_logic_vector(9 downto 0);
+           Green : out std_logic_vector(9 downto 0);
+           Blue  : out std_logic_vector(9 downto 0);
+           VGA_clk : out std_logic; 
+           sync : out std_logic;
+           blank : out std_logic;
+           vs : out std_logic;
+           hs : out std_logic);
+end BouncingBall;
+
+architecture Behavioral of BouncingBall is
+
+component ball is
+    Port ( Reset : in std_logic;
+           frame_clk : in std_logic;
+           U : in std_logic;
+		   D : in std_logic;
+           L : in std_logic;
+           R : in std_logic;
+           atk : in std_logic;  
+           Ball_X_posi, Ball_Y_posi: in std_logic_vector(9 downto 0);        
+           BallX : out std_logic_vector(9 downto 0);
+           BallY : out std_logic_vector(9 downto 0);
+           BallS : out std_logic_vector(9 downto 0);
+           BallMaps: out std_logic_vector(1 downto 0);
+           Enemy1 : out std_logic_vector(25 downto 0);
+		   Enemy2 : out std_logic_vector(25 downto 0);
+           Enemy3 : out std_logic_vector(25 downto 0));
+end component;
+
+component vga_controller is
+    Port ( clk : in std_logic;
+           reset : in std_logic;
+           hs : out std_logic;
+           vs : out std_logic;
+           pixel_clk : out std_logic;
+           blank : out std_logic;
+           sync : out std_logic;
+           DrawX : out std_logic_vector(9 downto 0);
+           DrawY : out std_logic_vector(9 downto 0));
+end component;
+
+component Color_Mapper is
+    Port ( BallX : in std_logic_vector(9 downto 0);
+           BallY : in std_logic_vector(9 downto 0);
+           DrawX : in std_logic_vector(9 downto 0);
+           DrawY : in std_logic_vector(9 downto 0);
+           En1   : in std_logic_vector(25 downto 0);
+           En2   : in std_logic_vector(25 downto 0);
+           En3   : in std_logic_vector(25 downto 0);
+           Ball_size : in std_logic_vector(9 downto 0);
+		   linkInfo: in std_logic_vector(6 downto 0);  
+           aniClk: in std_logic;
+		   RAM_Data: in std_logic_vector(15 downto 0);
+           
+           RAM_Addr: out std_logic_vector(17 downto 0);
+		   mapname : in std_logic_vector(1 downto 0);
+          
+           Red   : out std_logic_vector(9 downto 0);
+           Green : out std_logic_vector(9 downto 0);
+           Blue  : out std_logic_vector(9 downto 0));
+end component;
+
+
+
+component clkDiv is
+    Port (
+        clk_in : in  STD_LOGIC;
+        reset  : in  STD_LOGIC;
+        clk_out: out STD_LOGIC
+    );
+end component;
+
+
+--signal to connect the clock divider to the color-mapper for animations
+signal animationClk: std_logic;
+
+signal Reset_h, vsSig : std_logic;
+signal DrawXSig, DrawYSig, BallXSig, BallYSig, BallSSig : std_logic_vector(9 downto 0);
+signal mapsig: std_logic_vector(1 downto 0);
+signal En1, En2, En3 : std_logic_vector(25 downto 0);
+begin
+
+Reset_h <= not Reset; -- The push buttons are active low
+
+vgaSync_instance : vga_controller
+   Port map(clk => clk,
+            reset => Reset_h,
+            hs => hs,
+            vs => vsSig,
+            pixel_clk => VGA_clk,
+            blank => blank,
+            sync => sync,
+            DrawX => DrawXSig,
+            DrawY => DrawYSig);
+
+ball_instance : ball
+   Port map(Reset => Reset_h,
+            frame_clk => vsSig, -- Vertical Sync used as an "ad hoc" 60 Hz clock signal
+            U => U,
+            D => D,
+            L => L,
+            R => R,
+            atk => linkinfo(2),
+            BallX => BallXSig,  --   (This is why we registered it in the vga controller!)
+            BallY => BallYSig,
+            BallS => BallSSig,
+            Ball_X_posi => Ball_X_po,
+         
+            Ball_Y_posi => Ball_Y_po,
+			BallMaps=>mapsig,
+			Enemy1=> En1,
+			Enemy2=> En2,
+			Enemy3=>En3
+            );
+
+Color_instance : Color_Mapper
+   Port Map(BallX => BallXSig,
+            BallY => BallYSig,
+            DrawX => DrawXSig,
+            DrawY => DrawYSig,
+            En1 => Enemy1,
+            En2 => Enemy2,
+            En3 => Enemy3,
+            Ball_size => BallSSig,
+            Red => Red,
+            Green => Green,
+            Blue => Blue,
+            linkInfo =>linkInfo,
+            
+            aniClk => animationClk,
+            
+            RAM_Data => MEMO_Data,
+           
+			RAM_Addr => MEMO_Addr,
+			mapname=> mapsig
+            
+            );
+
+Clock_divider_instance: clkDiv
+	Port Map(clk_in => Clk,
+			reset => Reset_h,
+			clk_out => animationClk
+			
+			);
+
+
+vs <= vsSig;
+
+end Behavioral;      

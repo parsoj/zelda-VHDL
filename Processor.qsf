@@ -1,0 +1,178 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2010 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II
+# Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+# Date created = 15:51:10  October 21, 2012
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Processor_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C35F672C6
+set_global_assignment -name TOP_LEVEL_ENTITY Processor
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.1 SP2"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:51:10  OCTOBER 21, 2012"
+set_global_assignment -name LAST_QUARTUS_VERSION 9.1
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE ANY
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_location_assignment PIN_N2 -to Clk
+set_location_assignment PIN_G26 -to Reset
+set_location_assignment PIN_D26 -to ps2clk
+set_location_assignment PIN_C24 -to ps2data
+set_location_assignment PIN_AB23 -to AhexL[0]
+set_location_assignment PIN_V22 -to AhexL[1]
+set_location_assignment PIN_AC25 -to AhexL[2]
+set_location_assignment PIN_AC26 -to AhexL[3]
+set_location_assignment PIN_AB26 -to AhexL[4]
+set_location_assignment PIN_AB25 -to AhexL[5]
+set_location_assignment PIN_Y24 -to AhexL[6]
+set_location_assignment PIN_Y23 -to AHexU[0]
+set_location_assignment PIN_AA25 -to AHexU[1]
+set_location_assignment PIN_AA26 -to AHexU[2]
+set_location_assignment PIN_Y26 -to AHexU[3]
+set_location_assignment PIN_Y25 -to AHexU[4]
+set_location_assignment PIN_U22 -to AHexU[5]
+set_location_assignment PIN_W24 -to AHexU[6]
+set_location_assignment PIN_AF10 -to BhexL[0]
+set_location_assignment PIN_AB12 -to BhexL[1]
+set_location_assignment PIN_AC12 -to BhexL[2]
+set_location_assignment PIN_AD11 -to BhexL[3]
+set_location_assignment PIN_AE11 -to BhexL[4]
+set_location_assignment PIN_V14 -to BhexL[5]
+set_location_assignment PIN_V13 -to BhexL[6]
+set_location_assignment PIN_V20 -to BhexU[0]
+set_location_assignment PIN_V21 -to BhexU[1]
+set_location_assignment PIN_W21 -to BhexU[2]
+set_location_assignment PIN_Y22 -to BhexU[3]
+set_location_assignment PIN_AA24 -to BhexU[4]
+set_location_assignment PIN_AA23 -to BhexU[5]
+set_location_assignment PIN_AB24 -to BhexU[6]
+set_global_assignment -name MISC_FILE "C:/Users/Brian/Documents/ece385/Labs9/Processor.dpf"
+set_location_assignment PIN_C8 -to Red[0]
+set_location_assignment PIN_F10 -to Red[1]
+set_location_assignment PIN_G10 -to Red[2]
+set_location_assignment PIN_D9 -to Red[3]
+set_location_assignment PIN_C9 -to Red[4]
+set_location_assignment PIN_A8 -to Red[5]
+set_location_assignment PIN_H11 -to Red[6]
+set_location_assignment PIN_H12 -to Red[7]
+set_location_assignment PIN_F11 -to Red[8]
+set_location_assignment PIN_E10 -to Red[9]
+set_location_assignment PIN_B9 -to Green[0]
+set_location_assignment PIN_A9 -to Green[1]
+set_location_assignment PIN_C10 -to Green[2]
+set_location_assignment PIN_D10 -to Green[3]
+set_location_assignment PIN_B10 -to Green[4]
+set_location_assignment PIN_A10 -to Green[5]
+set_location_assignment PIN_G11 -to Green[6]
+set_location_assignment PIN_D11 -to Green[7]
+set_location_assignment PIN_E12 -to Green[8]
+set_location_assignment PIN_D12 -to Green[9]
+set_location_assignment PIN_J13 -to Blue[0]
+set_location_assignment PIN_J14 -to Blue[1]
+set_location_assignment PIN_F12 -to Blue[2]
+set_location_assignment PIN_G12 -to Blue[3]
+set_location_assignment PIN_J10 -to Blue[4]
+set_location_assignment PIN_J11 -to Blue[5]
+set_location_assignment PIN_C11 -to Blue[6]
+set_location_assignment PIN_B11 -to Blue[7]
+set_location_assignment PIN_C12 -to Blue[8]
+set_location_assignment PIN_B12 -to Blue[9]
+set_location_assignment PIN_A7 -to hs
+set_location_assignment PIN_D8 -to vs
+set_location_assignment PIN_D6 -to blank
+set_location_assignment PIN_B7 -to sync
+set_location_assignment PIN_B8 -to VGA_clk
+set_location_assignment PIN_AE4 -to SRAM_Addr[0]
+set_location_assignment PIN_AF4 -to SRAM_Addr[1]
+set_location_assignment PIN_AC5 -to SRAM_Addr[2]
+set_location_assignment PIN_AC6 -to SRAM_Addr[3]
+set_location_assignment PIN_AD4 -to SRAM_Addr[4]
+set_location_assignment PIN_AD5 -to SRAM_Addr[5]
+set_location_assignment PIN_AE5 -to SRAM_Addr[6]
+set_location_assignment PIN_AF5 -to SRAM_Addr[7]
+set_location_assignment PIN_AD6 -to SRAM_Addr[8]
+set_location_assignment PIN_AD7 -to SRAM_Addr[9]
+set_location_assignment PIN_V10 -to SRAM_Addr[10]
+set_location_assignment PIN_V9 -to SRAM_Addr[11]
+set_location_assignment PIN_AC7 -to SRAM_Addr[12]
+set_location_assignment PIN_W8 -to SRAM_Addr[13]
+set_location_assignment PIN_W10 -to SRAM_Addr[14]
+set_location_assignment PIN_Y10 -to SRAM_Addr[15]
+set_location_assignment PIN_AB8 -to SRAM_Addr[16]
+set_location_assignment PIN_AC8 -to SRAM_Addr[17]
+set_location_assignment PIN_AD8 -to SRAM_Data[0]
+set_location_assignment PIN_AE6 -to SRAM_Data[1]
+set_location_assignment PIN_AF6 -to SRAM_Data[2]
+set_location_assignment PIN_AA9 -to SRAM_Data[3]
+set_location_assignment PIN_AA10 -to SRAM_Data[4]
+set_location_assignment PIN_AB10 -to SRAM_Data[5]
+set_location_assignment PIN_AA11 -to SRAM_Data[6]
+set_location_assignment PIN_Y11 -to SRAM_Data[7]
+set_location_assignment PIN_AE7 -to SRAM_Data[8]
+set_location_assignment PIN_AF7 -to SRAM_Data[9]
+set_location_assignment PIN_AE8 -to SRAM_Data[10]
+set_location_assignment PIN_AF8 -to SRAM_Data[11]
+set_location_assignment PIN_W11 -to SRAM_Data[12]
+set_location_assignment PIN_W12 -to SRAM_Data[13]
+set_location_assignment PIN_AC9 -to SRAM_Data[14]
+set_location_assignment PIN_AC10 -to SRAM_Data[15]
+set_location_assignment PIN_AE10 -to SRAM_WE
+set_location_assignment PIN_AD10 -to SRAM_OE
+set_location_assignment PIN_AC11 -to SRAM_CE
+set_location_assignment PIN_AE9 -to SRAM_LB_Mask
+set_location_assignment PIN_AF9 -to SRAM_UB_Mask
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FITTER_AUTO_EFFORT_DESIRED_SLACK_MARGIN "0 ps"
+set_global_assignment -name VHDL_FILE mapplanner.vhd
+set_global_assignment -name VHDL_FILE char.vhd
+set_global_assignment -name VHDL_FILE Scan_Register.vhd
+set_global_assignment -name VHDL_FILE ball.vhd
+set_global_assignment -name VHDL_FILE BouncingBall.vhd
+set_global_assignment -name VHDL_FILE Color_Mapper.vhd
+set_global_assignment -name VHDL_FILE VGA_controller.vhd
+set_global_assignment -name VHDL_FILE dff.vhd
+set_global_assignment -name VHDL_FILE reg_11.vhd
+set_global_assignment -name VHDL_FILE mapper.vhd
+set_global_assignment -name VHDL_FILE Hexdriver.vhd
+set_global_assignment -name BDF_FILE Processor.bdf
+set_global_assignment -name VHDL_FILE clockDivider.vhd
+set_global_assignment -name VHDL_FILE linkDataFile.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
